@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import 'zone.js/dist/zone-node';
 import { enableProdMode } from '@angular/core';
 import { ngExpressEngine } from '@nguniversal/express-engine';
-// import * as compression from 'compression';
+import * as compression from 'compression';
 import * as express from 'express';
 const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist/server/main');
 const fs = require('fs');
@@ -64,7 +64,7 @@ try {
 app.enable('etag');
 
 // Middleware
-// app.use(compression());
+app.use(compression());
 app.set('view engine', 'html');
 app.set('views', 'dist/browser');
 app.set('view cache', true);
